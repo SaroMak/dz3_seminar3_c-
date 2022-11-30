@@ -1,20 +1,27 @@
-﻿// Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
-// 3 -> 1, 8, 27
-// 5 -> 1, 8, 27, 64, 125
+﻿// Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+// 14212 -> нет
+// 12821 -> да
+// 23432 -> да
 
 Console.Clear();
 
-void NumberPow(string str)
+Console.WriteLine("Введите пятизначное число: ");
+
+int number = int.Parse(Console.ReadLine());
+
+void VerifyPolindrome(string str)
 {
-    Console.WriteLine(str);
-    double number = double.Parse(Console.ReadLine());
-    double count = 1;
-     while(count <= number)
-     {
-     double numb = Math.Pow(count,3);
-     Console.Write(numb+ ", ");
-     count++;
-     }
+     Console.WriteLine(str);
+    int ostatok = number/1000;
+    int ostatokEnd = number % 100;
+    int ostatokEnd2 = (ostatokEnd % 10) * 10 + (ostatokEnd /10 );
+    if (ostatok == ostatokEnd2)
+        Console.WriteLine ($"число {number} является полиндромом");
+    else 
+        Console.WriteLine ($"число {number}  не является полиндромом");
 }
 
-NumberPow("Введите число N: ");
+
+
+
+VerifyPolindrome("Проверяем на полиндромность: ");
